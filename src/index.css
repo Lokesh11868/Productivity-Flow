@@ -1,0 +1,245 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary-50: 239 246 255;
+    --color-primary-100: 219 234 254;
+    --color-primary-200: 191 219 254;
+    --color-primary-300: 147 197 253;
+    --color-primary-400: 96 165 250;
+    --color-primary-500: 59 130 246;
+    --color-primary-600: 37 99 235;
+    --color-primary-700: 29 78 216;
+    --color-primary-800: 30 64 175;
+    --color-primary-900: 30 58 138;
+    
+    --color-secondary-50: 240 253 250;
+    --color-secondary-100: 204 251 241;
+    --color-secondary-200: 153 246 228;
+    --color-secondary-300: 94 234 212;
+    --color-secondary-400: 45 212 191;
+    --color-secondary-500: 20 184 166;
+    --color-secondary-600: 13 148 136;
+    --color-secondary-700: 15 118 110;
+    --color-secondary-800: 17 94 89;
+    --color-secondary-900: 19 78 74;
+    
+    --color-accent-50: 255 247 237;
+    --color-accent-100: 255 237 213;
+    --color-accent-200: 254 215 170;
+    --color-accent-300: 253 186 116;
+    --color-accent-400: 251 146 60;
+    --color-accent-500: 249 115 22;
+    --color-accent-600: 234 88 12;
+    --color-accent-700: 194 65 12;
+    --color-accent-800: 154 52 18;
+    --color-accent-900: 124 45 18;
+  }
+
+  * {
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+    transition-duration: 200ms;
+  }
+
+  html, body, #root {
+    height: 100%;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    color: #1f2937;
+    background-color: #fff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow: hidden;
+    height: 100vh;         /* Ensure body fits the viewport */
+    min-height: 100vh;     /* Prevent underflow */
+    margin: 0;             /* Remove default margin */
+    padding: 0;            /* Remove default padding */
+  }
+
+  .dark body {
+    color: #e5e7eb;
+    background-color: #111827;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    background-color: rgba(255,255,255,0.8);
+    backdrop-filter: blur(12px);
+    border-radius: 0.75rem;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+    min-height: 100%;
+  }
+  .dark .glass-panel {
+    background-color: rgba(31,41,55,0.8);
+    border-color: #374151;
+  }
+  
+  .btn-primary {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    background-color: rgb(var(--color-primary-500));
+    color: #fff;
+    border-radius: 0.5rem;
+    transition-property: all;
+    transition-duration: 200ms;
+    transform: none;
+    outline: none;
+  }
+  .btn-primary:hover {
+    background-color: rgb(var(--color-primary-600));
+    transform: scale(1.05);
+  }
+  .btn-primary:active {
+    transform: scale(0.95);
+  }
+  .btn-primary:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgb(var(--color-primary-500) / 0.5);
+  }
+  
+  .btn-secondary {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    background-color: #e5e7eb;
+    color: #111827;
+    border-radius: 0.5rem;
+    transition-property: all;
+    transition-duration: 200ms;
+    transform: none;
+    outline: none;
+  }
+  .dark .btn-secondary {
+    background-color: #374151;
+    color: #f9fafb;
+  }
+  .btn-secondary:hover {
+    background-color: #d1d5db;
+    transform: scale(1.05);
+  }
+  .dark .btn-secondary:hover {
+    background-color: #4b5563;
+  }
+  .btn-secondary:active {
+    transform: scale(0.95);
+  }
+  .btn-secondary:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #6b7280;
+    box-shadow: 0 0 0 2px rgba(107, 114, 128, 0.5);
+  }
+
+  .input-field {
+    width: 100%;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    background-color: #fff;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    outline: none;
+    transition: box-shadow 0.2s;
+  }
+  .dark .input-field {
+    background-color: #374151;
+    border-color: #4b5563;
+    color: #ffffff;
+  }
+  .input-field:focus {
+    outline: none;
+    border-color: transparent;
+    box-shadow: 0 0 0 2px rgb(var(--color-primary-500));
+  }
+  .dark .input-field:focus {
+    box-shadow: 0 0 0 2px rgb(var(--color-primary-400));
+  }
+
+  .card {
+    background-color: rgba(255,255,255,0.8);
+    backdrop-filter: blur(12px);
+    border-radius: 0.75rem;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+    min-height: 100%;
+    padding: 1.25rem;
+  }
+  .dark .card {
+    background-color: rgba(31,41,55,0.8);
+    border-color: #374151;
+  }
+
+  .icon-btn {
+    padding: 0.5rem;
+    border-radius: 9999px;
+    transition-property: background-color;
+    transition-duration: 200ms;
+  }
+  .icon-btn:hover {
+    background-color: #e5e7eb;
+  }
+  .dark .icon-btn:hover {
+    background-color: #374151;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f3f4f6;
+}
+.dark ::-webkit-scrollbar-track {
+  background-color: #1f2937;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #9ca3af;
+  border-radius: 9999px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background-color: #4b5563;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #6b7280;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background-color: #6b7280;
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(156 163 175) rgb(243 244 246);
+}
+
+.dark * {
+  scrollbar-color: rgb(75 85 99) rgb(31 41 55);
+}
+
+/* Add this to ensure white backgrounds in light mode */
+body,
+.glass-panel,
+.card {
+  background-color: #fff;
+}
+
+.dark body,
+.dark .glass-panel,
+.dark .card {
+  background-color: #111827;
+}
